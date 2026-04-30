@@ -1,12 +1,13 @@
 $fn = 96;
 
 // Toggle the default view.
-show_assembly = true;
+show_assembly = false;
 show_print_layout = false;
 show_base_only = false;
 show_body_only = false;
 show_cover_only = false;
 show_roller_only = false;
+show_roller_holder_short_only = true;
 
 // Candy and printer assumptions.
 candy_d = 15;
@@ -61,6 +62,12 @@ roller_to_slide_gap = 15;
 slide_step_z = 21;
 top_slide_high_z = (roller_z - roller_r - body_z) - roller_to_slide_gap - slide_t;
 slide_anchor_z = [for (i = [0 : slide_count - 1]) top_slide_high_z - i * slide_step_z];
+
+// Roller-holder-short part. This keeps the top body section with the roller
+// through-hole centered vertically in the cropped printable part.
+roller_holder_short_top_clearance = (body_h - (roller_z - body_z)) / 2;
+roller_holder_short_roller_z = roller_holder_short_top_clearance;
+roller_holder_short_h = 2 * roller_holder_short_top_clearance;
 
 // Fifth slide discharge point. The last slide is the left slide, so candy exits near the right side.
 last_slide_end_x = (side_t - 0.4) + slide_run * cos(slide_angle);
@@ -158,6 +165,23 @@ module body_part() {
     }
 }
 
+module roller_holder_short_part() {
+    color([0.74, 0.74, 0.76])
+    difference() {
+        union() {
+            cube([body_w, back_t, roller_holder_short_h]);
+            cube([side_t, body_d, roller_holder_short_h]);
+            translate([body_w - side_t, 0, 0])
+                cube([side_t, body_d, roller_holder_short_h]);
+        }
+
+        // Same roller clearance as the full body, shifted into this cropped part.
+        translate([-1, roller_y, roller_holder_short_roller_z])
+            rotate([0, 90, 0])
+            cylinder(d = roller_hole_d, h = body_w + 2, center = false);
+    }
+}
+
 module roller_part() {
     color([0.95, 0.68, 0.08])
     difference() {
@@ -203,6 +227,11 @@ module print_layout_view(spacing = 10) {
     translate([overall_w + body_h + overall_w + 3 * spacing, roller_r + 2, 0])
         rotate([90, 0, 0])
         roller_part();
+
+    // Roller-holder-short, printed on the back wall like the full body.
+    translate([overall_w + body_h + overall_w + roller_len + 4 * spacing, 0, 0])
+        rotate([90, 0, 0])
+        roller_holder_short_part();
 }
 
 if (show_base_only) {
@@ -213,6 +242,9 @@ if (show_base_only) {
     cover_plate();
 } else if (show_roller_only) {
     roller_part();
+} else if (show_roller_holder_short_only) {
+    rotate([90, 0, 0])
+        roller_holder_short_part();
 } else if (show_assembly) {
     assembly_view();
 } else if (show_print_layout) {

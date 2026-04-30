@@ -15,12 +15,14 @@ The original design credit stays with `iPadNanito`. This folder is the AI-assist
 - `codex-sketch-to-code.scad`: current editable OpenSCAD source
 - `codex-sketch-to-code-base.stl`: base mesh export
 - `codex-sketch-to-code-body.stl`: body mesh export
+- `codex-sketch-to-code-roller-holder-short.stl`: roller-holder-short body section mesh export
 - `codex-sketch-to-code-cover.stl`: cover mesh export
 - `codex-sketch-to-code-roller.stl`: roller mesh export
 - `codex-sketch-to-code-base.gcode`: sliced base print
 - `codex-sketch-to-code-body.gcode`: sliced body print
 - `codex-sketch-to-code-cover.gcode`: sliced cover print
 - `codex-sketch-to-code-roller.gcode`: sliced roller print
+- `codex-sketch-to-code-roller-holder-short.gcode`: sliced roller-holder-short body section print
 
 ## Assembly Images
 
