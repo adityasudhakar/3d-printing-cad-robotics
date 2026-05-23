@@ -324,3 +324,20 @@ Follow-up:
 - Consider porting some robot-arm OpenSCAD parts to build123d/CadQuery-style Python if it makes variants easier.
 - Try a config-driven servo bracket generator: SG90 vs MG996R, pin clearance, horn clearance, link length, and screw-hole positions.
 
+## Next steps / future dig-in: Ruben Kostandyan CAD/X post
+
+Link: https://x.com/ruben_kostard/status/2057926663694934273?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Tag: **next steps, for the future, dig into this**
+
+Why it may matter:
+
+- Adi flagged this as another CAD / 3D-printing / robotics reference to investigate later.
+- Likely related to the prior Ruben Kostandyan / ForgeCAD thread about image/product-to-CAD workflows.
+
+Follow-up:
+
+- Resolve/read the X post content later.
+- Save screenshots/media/repo links if relevant.
+- Compare it with the existing ForgeCAD, GenCAD, Claude CAD, and build123d notes for applicability to robot-arm parts and printable CAD workflows.
+
