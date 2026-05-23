@@ -240,3 +240,121 @@ Even with AI, need to review and constrain output. Knowing CAD concepts makes yo
 | Learning CAD | Not really | Yes |
 
 Key question: when you need to change something, which workflow lets you do it without starting over?
+
+---
+
+# Project Plan: Pi Zero Case Comparison
+
+## How text-to-cad Works
+
+**Stack:**
+```
+You (natural language) → Claude Code/Cursor → Build123d Python → OCCT → STEP → CAD Explorer
+```
+
+**Workflow:**
+1. Describe what you want in plain English
+2. Agent converts to a "brief" (structured spec)
+3. Agent writes `gen_step()` Python function using Build123d
+4. Run `python scripts/step target.py` → generates `.step` file
+5. Run `python scripts/inspect` → validates dimensions, geometry
+6. Open in CAD Explorer → visual review
+7. If broken → repair loop (agent reads errors, fixes code, regenerates)
+
+**Key insight:** The AI writes code, not clicks. You can read/edit the generated Build123d code directly.
+
+---
+
+## Phase 1: Setup
+
+| Task | Details |
+|------|---------|
+| **1.1 Install text-to-cad** | `npx skills add earthtojake/text-to-cad` in Claude Code |
+| **1.2 Install Python deps** | `python3.11 -m venv .venv && .venv/bin/pip install -r skills/cad/requirements.txt` |
+| **1.3 Install CAD Explorer** | `npm --prefix skills/render/scripts/viewer install` |
+| **1.4 Create Onshape account** | Free tier at onshape.com (projects public) |
+| **1.5 Get Pi Zero dimensions** | 65mm × 30mm × 5mm board, hole pattern, port locations |
+
+---
+
+## Phase 2: Design Spec (Same for Both)
+
+**Pi Zero Case Requirements:**
+- Two-part enclosure: base + lid
+- Internal dimensions: 67mm × 32mm × 12mm (2mm clearance around board)
+- Wall thickness: 2mm
+- Snap-fit or screw bosses (4x M2.5) for lid attachment
+- Cutouts: micro USB power, micro USB data, mini HDMI, SD card slot
+- 4x mounting standoffs matching Pi Zero hole pattern (58mm × 23mm, 2.4mm holes)
+- Ventilation slots on top
+- Corner fillets: 2mm external
+
+---
+
+## Phase 3: Build in text-to-cad
+
+| Step | What happens |
+|------|--------------|
+| **3.1** | Describe the case to Claude Code with CAD skill active |
+| **3.2** | Agent writes brief, then Build123d Python code |
+| **3.3** | Generate STEP: `python scripts/step pi_zero_case.py` |
+| **3.4** | Inspect: `python scripts/inspect refs pi_zero_case.step --facts --planes` |
+| **3.5** | View in CAD Explorer |
+| **3.6** | Iterate via natural language ("move the USB cutout 2mm left") |
+| **3.7** | When lid doesn't fit base → observe repair loop |
+
+**Log these:**
+- Time to first "looks right" geometry
+- Number of regeneration cycles
+- What broke and how it got fixed
+- Did you understand the generated code?
+
+---
+
+## Phase 4: Build in Onshape
+
+| Step | What happens |
+|------|--------------|
+| **4.1** | Create new document |
+| **4.2** | Sketch base profile, constrain fully |
+| **4.3** | Extrude, shell, add features |
+| **4.4** | Create lid as new part, reference base dimensions |
+| **4.5** | Add cutouts, standoffs, snap fits |
+| **4.6** | Make a change ("wall thickness 2.5mm instead of 2mm") |
+| **4.7** | Observe what updates automatically |
+
+**Log these:**
+- Time to first complete model
+- How many constraints did you set?
+- What happened when you changed a dimension?
+- Did lid-to-base alignment break?
+
+---
+
+## Phase 5: Compare
+
+| Dimension | text-to-cad | Onshape |
+|-----------|-------------|---------|
+| Time to first draft | | |
+| Time to make a change | | |
+| Confidence parts will fit | | |
+| Understood what you built | | |
+| Could you edit without AI | | |
+| What broke | | |
+| How it recovered | | |
+
+---
+
+## Phase 6: Document
+
+Add findings back here:
+- Which workflow felt better for what
+- Where AI helped vs hindered
+- Whether you'd use text-to-cad for real projects
+- What you learned about parametric CAD concepts
+
+---
+
+## Phase 7 (Optional): Print It
+
+Export STL from both, slice in Cura, print on Ender 3. See if the parts actually fit a real Pi Zero.
