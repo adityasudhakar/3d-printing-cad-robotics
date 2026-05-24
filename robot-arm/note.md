@@ -367,3 +367,31 @@ Follow-up:
 - Compare with current local YOLO + Arduino servo work: what would it take to turn that into a ROS node graph?
 - Investigate whether a future robot-arm stack should use ROS 2, simple Python processes, or a hybrid approach.
 
+## Next steps / future dig-in: CadX Studio parametric CAD engine
+
+Link: https://x.com/cadx_studio/status/2058637963677007894?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Site from screenshot: https://engine.cadxstudio.in
+
+Source screenshot: `images/cadx-studio-parametric-brake-rotor-2026-05-24.jpg`
+
+Tag: **next steps, for the future, dig into this**
+
+Post summary from screenshot:
+
+- CadX Studio announced that “cadx is live.”
+- Demo: a brake rotor with **42 parameters**, cross-drilled holes, vanes, and auto-generated manufacturing notes.
+- Screenshot shows a browser-based parametric CAD UI with sliders/controls and a 3D brake rotor preview.
+
+Why it may matter:
+
+- Relevant to parametric CAD workflows for robot-arm parts and 3D-printable mechanisms.
+- The parameter-heavy brake rotor example is a good reference for making configurable mechanical parts instead of one-off static models.
+- Auto-generated manufacturing notes could be useful for documenting print settings, tolerances, assembly notes, or fabrication constraints.
+
+Follow-up:
+
+- Try CadX Studio / engine.cadxstudio.in and see whether it exports STEP/STL/CAD source.
+- Compare its workflow with build123d, ForgeCAD, GenCAD, and the current OpenSCAD robot-arm files.
+- Test whether it can create configurable servo brackets, horn adapters, linkage plates, or joint housings.
+
