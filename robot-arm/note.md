@@ -341,3 +341,29 @@ Follow-up:
 - Save screenshots/media/repo links if relevant.
 - Compare it with the existing ForgeCAD, GenCAD, Claude CAD, and build123d notes for applicability to robot-arm parts and printable CAD workflows.
 
+## Next steps / future dig-in: ROS middleware + coding-model robotics workflow
+
+Link: https://x.com/chris_j_paxton/status/2057913280862019907?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Source screenshot: `images/ros-middleware-codex-robotclaw-2026-05-24.jpg`
+
+Tag: **next steps, for the future, dig into this**
+
+Post summary from screenshot:
+
+- Chris Paxton notes that robotics software is painful because of the “boring middleware code” needed between sensors, processes, and tools.
+- The quoted post describes using Codex to set up ROS middleware, configure a CSI camera, benchmark Gemma 4 models on a Jetson Orin Nano, adapt an OpenClaw runtime for VLM reasoning (“Robotclaw”), and build an iOS app streaming LiDAR, camera, GPS, and IMU data.
+
+Why it may matter:
+
+- Directly relevant if the robot arm grows from simple Arduino servo control into a ROS/sensor/perception project.
+- Suggests a practical path for using coding agents to generate the glue code around cameras, sensors, VLMs, Jetson hardware, and ROS nodes.
+- Useful mental model: robotics progress may come from automating middleware scaffolding, not just better models or better CAD.
+
+Follow-up:
+
+- Read the original thread and quoted post in full.
+- Identify any repos, scripts, or architecture diagrams for the ROS/Codex/Robotclaw setup.
+- Compare with current local YOLO + Arduino servo work: what would it take to turn that into a ROS node graph?
+- Investigate whether a future robot-arm stack should use ROS 2, simple Python processes, or a hybrid approach.
+
