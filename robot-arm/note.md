@@ -395,3 +395,21 @@ Follow-up:
 - Compare its workflow with build123d, ForgeCAD, GenCAD, and the current OpenSCAD robot-arm files.
 - Test whether it can create configurable servo brackets, horn adapters, linkage plates, or joint housings.
 
+## Next steps / future dig-in: CadX Studio follow-up post
+
+Link: https://x.com/cadx_studio/status/2059238566224687506?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Tag: **next steps, for the future, dig into this**
+
+Why it may matter:
+
+- Adi flagged this as another CadX Studio / CAD / 3D-printing / robotics reference to investigate later.
+- Likely related to the prior CadX Studio parametric CAD engine note and may include an updated demo, feature, workflow, or product direction.
+
+Follow-up:
+
+- Resolve/read the X post content later.
+- Save screenshots/media/repo/docs links if relevant.
+- Compare with the existing CadX Studio, ForgeCAD, GenCAD, Claude CAD, and build123d notes for robot-arm part generation workflows.
+- Check whether it helps with configurable servo brackets, horn adapters, linkages, joint housings, manufacturing notes, or export formats.
+
