@@ -413,3 +413,23 @@ Follow-up:
 - Compare with the existing CadX Studio, ForgeCAD, GenCAD, Claude CAD, and build123d notes for robot-arm part generation workflows.
 - Check whether it helps with configurable servo brackets, horn adapters, linkages, joint housings, manufacturing notes, or export formats.
 
+## Next steps / future dig-in: Train robot from human action
+
+Link: https://x.com/iliraliu_/status/2059544160810541152?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Tag: **next steps, for the future, dig into this**
+
+Note from Adi: **train robot to do something using human action**
+
+Why it may matter:
+
+- Relevant to imitation learning / learning-from-demonstration for robotics.
+- Could become useful if the robot-arm project moves beyond scripted servo sweeps into teaching motions from human examples.
+- Worth investigating for workflows where a human demonstrates an action, then the robot learns or replays the task.
+
+Follow-up:
+
+- Resolve/read the X post content later.
+- Identify whether it points to a repo, paper, demo, dataset, teleoperation workflow, or robot policy training method.
+- Compare with current robot-arm stack: what sensors, recordings, servo control, and safety constraints would be needed to teach the arm by human demonstration?
+
