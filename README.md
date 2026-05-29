@@ -19,6 +19,7 @@ It combines printer setup notes, simple OpenSCAD models, exported print assets, 
 - `3d_printer_notes.md`: setup notes and lessons from getting the Ender 3 running
 - `flanged nut/`: early OpenSCAD practice around a flanged-nut side-load block and a simple `M5` practice part
 - `candy dispenser/`: AI-recreated candy dispenser CAD, print exports, and assembly images
+- `robot-arm/vision-turret/`: chipboard `SG90` pan/tilt turret mockup for CV-guided laser pointer experiments
 
 ## Workflow
 
