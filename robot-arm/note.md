@@ -215,6 +215,78 @@ Follow-up:
 - Evaluate whether it can produce OpenSCAD/STEP/URDF assets useful for the SG90/MG996R robot-arm experiments.
 - Try a small prompt like: “two-link servo elbow with SG90 mount, sweep 10–90 degrees, avoid self-collision.”
 
+## Text-to-CAD cradle experiment notes
+
+Goal: try CAD Skills / build123d as a STEP-first workflow for an SG90 servo cradle.
+
+Why try this:
+
+- `build123d` uses Python, which should make variants easier than OpenSCAD.
+- STEP is better than STL for editing, measuring, and reusing CAD.
+- STL can still be exported later for slicing and printing.
+- URDF/SRDF may become useful later if the robot arm moves toward ROS or MoveIt.
+
+First cradle workflow:
+
+1. Create a `build123d` Python source file for an SG90 cradle.
+2. Generate a STEP file from that source.
+3. Inspect the STEP dimensions and geometry.
+4. Open the STEP in CAD Explorer for visual review.
+5. Export an STL for Cura only after the STEP looks right.
+6. Print a small fit test.
+7. Tune servo pocket, screw holes, wire channel, and shaft/horn clearance.
+8. If SG90 works, add parameters for MG996R.
+
+First prompt idea:
+
+> Create a parametric build123d STEP model in millimeters for an SG90 servo elbow test bracket.
+>
+> Make a fixed base with four M3 mounting holes, a raised SG90 servo cradle, an open top pocket for a 22.4 x 12.5 x 32 mm SG90 body, clearance for 31.8 mm mounting ears, a side cable exit, and a shaft-side opening so the servo horn can rotate outside the block.
+>
+> Use conservative FDM clearances: 1.2 mm body clearance, 2.0 mm depth clearance, 3 mm walls, and 4 mm base thickness. Put named parameters at the top. Export STEP first and STL second.
+
+Open questions:
+
+- Do we install CAD Skills locally, or just copy the needed workflow into this repo?
+- Do we keep OpenSCAD as the main source, or start using `build123d` for robot-arm parts?
+- What is the first physical fit target: bare SG90 body, SG90 with horn, or full elbow assembly?
+
+Text-to-CAD repo mental model:
+
+- It is not a normal CAD app; it is a set of agent workflows plus helper scripts.
+- Basic flow: user describes a part, agent writes source code, scripts generate STEP/STL/GLB, inspection/viewer tools check the output, then the agent edits source and regenerates.
+- `SKILL.md` files are entry points; `references/` files are loaded only when needed.
+- CAD Explorer does not generate CAD. It views existing STEP/STL/GLB/URDF/SRDF/SDF outputs in a browser.
+- There are two toolchains: Python CAD generation for STEP/STL, and a Node viewer toolchain for CAD Explorer.
+
+CAD ecosystem map:
+
+- Code-CAD means writing code/scripts to generate shapes. Examples: OpenSCAD, CadQuery, build123d.
+- GUI-CAD means drawing/manipulating geometry in an interactive app. Examples: FreeCAD, SolidWorks, Fusion, Inventor, CATIA, Creo, NX.
+- The deeper relationship depends on the geometry kernel: the math engine that represents solids, surfaces, curves, intersections, booleans, fillets, and exports.
+
+OpenCascade / OCCT ecosystem:
+
+- FreeCAD: GUI CAD app plus a large Python framework, built on OpenCascade.
+- CadQuery: Python parametric CAD library built on OpenCascade.
+- build123d: newer Python parametric CAD library built on OpenCascade; overlaps with CadQuery but uses a different API style.
+- These tools are separate projects, but they share the same underlying geometry family. This makes STEP-style solid CAD workflows more natural.
+
+Other CAD ecosystems:
+
+- OpenSCAD is a separate code-CAD ecosystem based on constructive solid geometry: `union`, `difference`, and `intersection`. It is excellent for simple scriptable 3D-printing models, but it is not part of the OpenCascade family and usually outputs mesh-oriented STL.
+- SolidWorks, Siemens NX, and Solid Edge use Parasolid.
+- CATIA uses Dassault's CATIA Geometric Modeler / CGM ecosystem.
+- Creo / Pro/ENGINEER uses PTC Granite.
+- AutoCAD, Inventor, and Fusion use Autodesk ShapeManager, derived from ACIS.
+- STEP is the practical bridge between many of these worlds.
+
+CSG vs B-Rep:
+
+- CSG engines, such as OpenSCAD, combine and subtract primitive shapes. In normal 3D-printing workflows, curved shapes eventually become triangle meshes.
+- B-Rep engines, such as OpenCascade and Parasolid, track exact surfaces, edges, and curves mathematically, often using analytic surfaces and NURBS.
+- Practical impact: CSG/OpenSCAD is simple, scriptable, and great for many printable parts. B-Rep/OpenCascade-style CAD is better for precise mechanical geometry, STEP export, fillets, chamfers, face/edge references, and downstream CAD edits.
+
 ## Next steps / future dig-in: Open Duck Mini
 
 Link: https://github.com/apirrone/Open_Duck_Mini
@@ -432,4 +504,3 @@ Follow-up:
 - Resolve/read the X post content later.
 - Identify whether it points to a repo, paper, demo, dataset, teleoperation workflow, or robot policy training method.
 - Compare with current robot-arm stack: what sensors, recordings, servo control, and safety constraints would be needed to teach the arm by human demonstration?
-
