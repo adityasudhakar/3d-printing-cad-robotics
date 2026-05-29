@@ -186,6 +186,54 @@ Design updates / implications:
 - The moving-link horn pad should support 30–33 mm horns, so a **28–32 mm pad** is reasonable for v0.
 - Cable channel should support a 250 mm cable exiting without sharp bends.
 
+## Related project idea: pigeon-deterrent water gun
+
+Source/local project: `/Users/adityasudhakar/water-gun`
+
+Inspiration: a person built a camera-triggered water gun to scare pigeons. This is the same general idea as the local `water-gun` prototype.
+
+Current local prototype:
+
+- Uses a Mac camera feed.
+- Runs Ultralytics YOLO locally.
+- Detects the `person` class in frame.
+- Logs timestamped detection events only; no hardware actuation yet.
+
+Project direction:
+
+1. Prove detection and logging are reliable.
+2. Add target-specific detection later if needed, such as birds/pigeons rather than people.
+3. Add pan/tilt aiming or a fixed nozzle.
+4. Add hardware trigger only after safety checks are designed.
+5. Keep Arduino/microcontroller logic as the low-level actuator layer.
+
+Safety constraints:
+
+- Start software-only.
+- Do not aim at people, pets, eyes, windows, electronics, or public areas.
+- Use explicit arming/disarming and cooldown logic.
+- Require a physical stop or power cutoff before adding pumps/servos.
+
+## Related CAD learning project: Pi Zero case comparison
+
+Goal: compare text-to-CAD against normal constrained CAD by building the same Raspberry Pi Zero case both ways.
+
+Design target:
+
+- Two-part enclosure: base + lid.
+- Internal dimensions around `67 x 32 x 12 mm`.
+- Wall thickness around `2 mm`.
+- Mounting standoffs for Pi Zero hole pattern.
+- Cutouts for micro USB, mini HDMI, and SD card.
+- Ventilation slots and small corner fillets.
+
+Comparison plan:
+
+1. Build with text-to-CAD / build123d / STEP / CAD Explorer.
+2. Build again in Onshape with proper sketches and constraints.
+3. Compare first-draft speed, change speed, confidence parts fit, and ability to edit without AI.
+4. Optionally export STL from both and print on the Ender 3.
+
 ## Next steps / future dig-in: Text-to-CAD / robot mechanism tool
 
 Saved from Jake Fitzgerald / @earthtojake post on X, dated **2026-05-20**.
