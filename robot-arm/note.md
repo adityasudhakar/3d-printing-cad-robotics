@@ -314,6 +314,7 @@ Tag: **next steps, for the future, dig into this**
 Why it may matter:
 
 - Adi flagged this alongside the text-to-CAD and Open Duck Mini references for the robot arm / 3D-printing / CAD exploration track.
+- Note to check: Onshape extension and Fusion extension for AI CAD.
 - Need to open/read the post later and extract the concrete tool, repo, workflow, or design idea.
 
 Follow-up:
@@ -331,6 +332,7 @@ Tag: **next steps, for the future, dig into this**
 Post summary from screenshot:
 
 - “A photo goes in. A CAD file comes out.”
+- Short label: image to CAD.
 - MIT released **GenCAD**, described as a model that converts an image of a mechanical part into an editable parametric CAD program.
 - Framed as image-to-CAD, not text-to-image/render generation.
 - Screenshot shows “GenCAD: CAD retrieval (image conditional)” with retrieved CAD from ~7,500 unseen CAD programs.
@@ -405,6 +407,7 @@ Tag: **next steps, for the future, dig into this**
 Why it may matter:
 
 - Adi flagged this as another CAD / 3D-printing / robotics reference to investigate later.
+- Note to check: ForgeCAD robot finger.
 - Likely related to the prior Ruben Kostandyan / ForgeCAD thread about image/product-to-CAD workflows.
 
 Follow-up:
