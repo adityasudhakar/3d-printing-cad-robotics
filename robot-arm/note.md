@@ -555,3 +555,31 @@ Follow-up:
 - Resolve/read the X post content later.
 - Identify whether it points to a repo, paper, demo, dataset, teleoperation workflow, or robot policy training method.
 - Compare with current robot-arm stack: what sensors, recordings, servo control, and safety constraints would be needed to teach the arm by human demonstration?
+
+## Next steps / future dig-in: implicit.js open-source CAD
+
+Link: https://x.com/earthtojake/status/2061514749050048959?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Author: Jake Fitzgerald / @earthtojake
+
+Tag: **next steps, for the future, dig into this**
+
+Post summary:
+
+- “weekend hack: implicit.js”
+- Described as an **open source library that lets agents generate CAD with code + mathematical functions representing surfaces**.
+- Key claim: **no CAD kernels, no STEP files** — agents use math + code to directly generate 3D models.
+- Public mirror exposed a demo video URL: https://video.twimg.com/amplify_video/2061512458548690945/vid/avc1/3728x2160/xiY6i8pAv8ndTCqC.mp4
+
+Why it may matter:
+
+- Could be an alternate CAD generation path for agent-built 3D models, separate from OpenSCAD, build123d, CadQuery, STEP, or full CAD kernels.
+- Potentially useful for quick generative geometry experiments, especially if robot-arm parts can be represented as implicit surfaces.
+- Worth comparing against STEP/B-Rep workflows before relying on it for mechanical fit, servo clearances, screw holes, or printable tolerances.
+
+Follow-up:
+
+- Find the implicit.js GitHub repo/docs.
+- Check output formats: mesh/STL/GLB? browser preview? slicer-ready export?
+- Test with a simple part: SG90 cradle, horn adapter, or rounded robot link.
+- Evaluate whether implicit surfaces are practical for precise mechanical CAD or mainly useful for organic/visual/generated shapes.
