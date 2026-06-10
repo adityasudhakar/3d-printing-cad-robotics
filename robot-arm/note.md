@@ -583,3 +583,30 @@ Follow-up:
 - Check output formats: mesh/STL/GLB? browser preview? slicer-ready export?
 - Test with a simple part: SG90 cradle, horn adapter, or rounded robot link.
 - Evaluate whether implicit surfaces are practical for precise mechanical CAD or mainly useful for organic/visual/generated shapes.
+
+## Next steps / future dig-in: RL with Codex
+
+Link: https://x.com/yacinemtb/status/2064714417489477674?s=46&t=oFidhmClqAQlH3MbSBeFTQ
+
+Tag: **RL with Codex**
+
+Source / context:
+
+- Yacine / @yacineMTB quote-tweeted a HomeMadeGarbage demo and wrote:
+  > “this is EXACTLY what i want to do! what is the SIMPLEST POSSIBLE ROBOT that you could make and train in RL?? god damn i love this guy”
+- Quoted post text: “Codexで強化学習 生き物つくってもうた。。” — roughly: “Reinforcement learning with Codex. I ended up making a creature.”
+- Public mirror exposed demo video URL: https://video.twimg.com/amplify_video/2064509352128708608/vid/avc1/1920x1080/7elP2zxmRdF9j7JH.mp4
+
+Why it may matter:
+
+- Directly matches the “simplest possible robot + RL” exploration path.
+- Good prompt for a practical next experiment: use Codex to build/simulate a tiny robot or creature, then train a reinforcement-learning policy for one simple behavior.
+- Useful bridge between the current servo/CAD experiments and future robot control beyond hand-coded sweeps.
+
+Follow-up:
+
+- Identify the simplest physical/sim robot worth trying: 1-servo pendulum, 2-servo crawler, tiny walking linkage, or simulated creature first.
+- Check whether the demo has a repo, code, simulator, or write-up.
+- Decide sim stack: MuJoCo, PyBullet, Brax, Genesis, or simple custom physics.
+- Have Codex generate the environment, reward, robot morphology, training loop, and visualization.
+- If sim works, map the learned motion to a safe physical SG90/MG996R prototype with hard motion limits.
