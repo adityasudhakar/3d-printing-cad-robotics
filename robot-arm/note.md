@@ -610,3 +610,40 @@ Follow-up:
 - Decide sim stack: MuJoCo, PyBullet, Brax, Genesis, or simple custom physics.
 - Have Codex generate the environment, reward, robot morphology, training loop, and visualization.
 - If sim works, map the learned motion to a safe physical SG90/MG996R prototype with hard motion limits.
+
+## Next steps / future dig-in: confBuild browser parametric CAD turbofan
+
+Link: https://x.com/daniel_z1909/status/2065077328628044224?s=52&t=oFidhmClqAQlH3MbSBeFTQ
+
+Author: Daniel / @daniel_z1909
+
+Tag: **next steps, for the future, dig into this**
+
+Post summary:
+
+- Demo of an **Airbus-class turbofan** that is fully parametric, animated, and built in the browser.
+- Created in **confBuild** with “Claude Fable 5.”
+- Features called out:
+  - 7-stage compressor
+  - annular combustor
+  - 4 turbine stages
+  - two-spool animation with HP/LP shafts at differential speeds
+  - flow lines and exhaust reacting live to an N1 lever
+  - dimensions controlled by sliders, with exact recalculation
+  - STEP export and auto-generated technical drawings
+- Key quote: “Every chamfer and bore: calculated, not painted.”
+- Site from author profile: https://confbuild.com
+- Public mirror exposed demo video URL: https://video.twimg.com/amplify_video/2065077132884070400/vid/avc1/3840x2144/pIYlb4G1Kl31rXSw.mp4?tag=27
+
+Why it may matter:
+
+- Useful reference for browser-native, parameter-driven CAD with animation and STEP export.
+- Relevant to robot-arm work if confBuild can handle assemblies, sliders, motion previews, and technical drawings for configurable parts.
+- The “calculated, not painted” framing is a good standard for AI CAD: parametric geometry, real dimensions, and exportable engineering artifacts rather than visual-only mockups.
+
+Follow-up:
+
+- Try confBuild on a simpler robot-arm part: SG90 bracket, horn adapter, two-link elbow, or servo test fixture.
+- Check whether it exports usable STEP files and drawings for 3D printing/manufacturing.
+- Compare against build123d/CAD Skills, CadX Studio, ForgeCAD, and implicit.js.
+- Evaluate whether slider-driven parameters can become the default UX for servo sizes, link lengths, hole patterns, and motion clearances.
